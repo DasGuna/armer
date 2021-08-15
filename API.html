@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>API &mdash; Armer Driver  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Modules" href="modules.html" />
+    <link rel="prev" title="Setting Joint Positions" href="set_joint_position.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2c3e50" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Armer Driver
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="armer_installation.html">Armer Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="working_with_a_new_arm.html">Working With A New Arm</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="creating_a_hardware_package.html">Creating a Hardware Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_an_RTB_model.html">Creating a Robotics Toolbox model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="set_joint_velocity.html">Setting Joint Velocites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="set_cartesian_velocity.html">Setting Cartesian Velocites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="set_joint_position.html">Setting Joint Positions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Code:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subscribed-topics">Subscribed Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#published-topics">Published Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#services">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#action-api">Action API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Armer Driver</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/API.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subscribed-topics">
+<h2>Subscribed Topics<a class="headerlink" href="#subscribed-topics" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>/arm/cartesian/velocity</strong> <a class="reference external" href="https://docs.ros.org/api/geometry_msgs/html/msg/Twist.html">geometry_msgs/TwistStamped</a></dt>
+<dd>Moves the end-effector in cartesian space w.r.t. the target frame_id (base frame if no frame_id is set).</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>/arm/joint/velocity</strong> <a class="reference external" href="https://github.com/qcr/armer_msgs/blob/main/msg/JointVelocity.html">armer_msgs/JointVelocity</a></dt>
+<dd>Moves the joints of the manipulator at the requested velocity.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="published-topics">
+<h2>Published Topics<a class="headerlink" href="#published-topics" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>/arm/state</strong>  <a class="reference external" href="https://github.com/qcr/armer_msgs/blob/main/msg/ManipulatorState.msg">armer_msgs/ManipulatorState</a></dt>
+<dd>Provides information on the current state of the manipulator including the pose of the end-effector w.r.t. to the base link, whether the manipulator is experiencing a cartesian contact and collision as a bit-wised error state flag.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="services">
+<h2>Services<a class="headerlink" href="#services" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>/arm/home</strong> <a class="reference external" href="http://docs.ros.org/noetic/api/std_srvs/html/srv/Empty.html">std_srvs/Empty</a></dt>
+<dd>Moves the robot back to its initial ready pose.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>/arm/recover</strong> <a class="reference external" href="http://docs.ros.org/noetic/api/std_srvs/html/srv/Empty.html">std_srvs/Empty</a></dt>
+<dd>Recovers from collision or limit violation error states that will put the robot into a non-operable state.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>/arm/stop</strong> <a class="reference external" href="http://docs.ros.org/noetic/api/std_srvs/html/srv/Empty.html">std_srvs/Empty</a></dt>
+<dd>Stops the current motion of the current.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>/arm/get_named_poses</strong> <a class="reference external" href="https://github.com/qcr/armer_msgs/blob/main/srv/GetNamesList.srv">armer_msgs/GetNamesList</a></dt>
+<dd>Gets a list of currently stored named poses (includes both moveit and driver stored named poses).</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>/arm/set_named_pose</strong> <a class="reference external" href="https://github.com/qcr/armer_msgs/blob/main/srv/SetNamedPose.srv">armer_msgs/SetNamedPose</a></dt>
+<dd>Saves the current joint configuration of the robot with the provided pose name.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>/arm/remove_named_pose</strong> <a class="reference external" href="https://github.com/qcr/armer_msgs/blob/main/srv/RemoveNamedPose.srv">armer_msgs/RemoveNamedPose</a></dt>
+<dd>Removes the joint configuration of the provided pose name.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>/arm/set_cartesian_impedance</strong> <a class="reference external" href="https://github.com/qcr/armer_msgs/blob/main/srv/SetCartesianImpedance.srv">armer_msgs/SetCartesianImpedance</a></dt>
+<dd>Adjusts the impedance of the end-effector position in cartesian space.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>/arm/add_named_pose_config</strong> <a class="reference external" href="https://github.com/qcr/armer_msgs/blob/main/srv/SetNamedPoseConfig.srv">armer_msgs/SetNamedPoseConfig</a></dt>
+<dd>Instructs the driver to load named poses stored in the indicated config file.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>/arm/get_named_pose_configs</strong> <a class="reference external" href="https://github.com/qcr/armer_msgs/blob/main/srv/GetNamedPoseConfigs.srv">armer_msgs/GetNamedPoseConfigs</a></dt>
+<dd>Gets the list of config files to check for named poses.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>/arm/remove_named_pose_config</strong> <a class="reference external" href="https://github.com/qcr/armer_msgs/blob/main/srv/SetNamedPoseConfig.srv">armer_msgs/SetNamedPoseConfig</a></dt>
+<dd>Instructs the driver to remove named poses stored in the indicated config file.</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="action-api">
+<h2>Action API<a class="headerlink" href="#action-api" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>/arm/cartesian/pose</strong> <a class="reference external" href="https://github.com/qcr/armer_msgs/blob/main/action/MoveToPose.action">armer_msgs/MoveToPose.action</a></dt>
+<dd>Moves the end-effector to the requested goal pose w.r.t. the indicated frame id.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>/arm/cartesian/servo_pose</strong> <a class="reference external" href="https://github.com/qcr/armer_msgs/blob/main/action/ServoToPose.action">armer_msgs/ServoToPose.action</a></dt>
+<dd>Servos the end-effector to the requested goal pose with real time object avoidance.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>/arm/joint/named</strong> <a class="reference external" href="https://github.com/qcr/armer_msgs/blob/main/action/MoveToNamedPose.action">armer_msgs/MoveToNamedPose.action</a></dt>
+<dd>Moves the end-effector to a pre-defined joint configuration.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>/arm/joint/pose</strong> <a class="reference external" href="https://github.com/qcr/armer_msgs/blob/main/action/MoveToJointPose.action">armer_msgs/MoveToJointPoseAction</a></dt>
+<dd>Moves the joints of the robot to the indicated positions (radians).</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="modules.html" class="btn btn-neutral float-right" title="Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="set_joint_position.html" class="btn btn-neutral float-left" title="Setting Joint Positions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Gavin Suddrey.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
