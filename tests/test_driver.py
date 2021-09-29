@@ -9,7 +9,8 @@ import signal
 import time
 import rospy
 
-from roboticstoolbox.backends.Swift import Swift
+# --- path update from new rtb release (v0.11.0)
+from roboticstoolbox.backends.swift import Swift
 from roboticstoolbox.models.URDF.Panda import Panda
 
 from armer.robots.ROSRobot import ROSRobot

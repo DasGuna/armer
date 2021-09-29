@@ -85,28 +85,40 @@ class ROSRobot(rtb.ERobot):
                  * args,
                  **kwargs):  # pylint: disable=unused-argument
 
+        # Inheritence invoke of ERobot object initialisation
         super().__init__(robot)
+       
+        # Update current class dictionary of attributes
         self.__dict__.update(robot.__dict__)
 
+        # Check if provided gripper is not None, otherwise assign constructed robot gripper ELink
         self.gripper = gripper if gripper else self.grippers[0].links[0].name
+        # Check if provided name is not None, otherwise assign constructed robot name
         self.name = name if name else self.name
         
         sorted_links=[]
-        #sort links by parents starting from gripper
-        link=self.link_dict[self.gripper]   
+        # Sort links by parents starting from gripper - name attribute (either through config or from inheritence)
+        # is required to source the gipper from the link dictionary
+        link=self.link_dict[self.gripper]
+        # if a link was found in the link dictionary, append this to the sorted links list
+        # then grab this link's parent node and continue the process until the "head" 
+        # Once this list is created, it is sorted in reverse order (NOTE: this includes the gripper base node)
         while link is not None:
             sorted_links.append(link)
             link=link.parent
         sorted_links.reverse()
 
+        # From the sorted link list above, these instructs extract joint names by filtering if the link is a joint
         self.joint_indexes = []
         self.joint_names = list(map(lambda link: link._joint_name, filter(lambda link: link.isjoint, sorted_links)))
 
+        # Sets the origin of the robot if provided
         if origin:
             self.base = SE3(origin[:3]) @ SE3.RPY(origin[3:])
 
         self.frequency = frequency if frequency else rospy.get_param(joint_state_topic + '/frequency', 500)
         
+        # Checks if the ERobot object has a defined ready position
         self.q = self.qr if hasattr(self, 'qr') else self.q # pylint: disable=no-member
         self.joint_states = None # Joint state message
 

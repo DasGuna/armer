@@ -2,6 +2,7 @@
 Armer Class
 
 .. codeauthor:: Gavin Suddreys
+.. codeauthor:: Dasun Gunasinghe (modifications only)
 """
 from __future__ import annotations
 from typing import List, Dict, Any, Tuple
@@ -14,7 +15,8 @@ import tf2_ros
 import yaml
 
 import roboticstoolbox as rtb
-from roboticstoolbox.backends.Swift import Swift
+# --- path update from new rtb release (v0.11.0)
+from roboticstoolbox.backends.swift import Swift
 
 from spatialmath.base.argcheck import getvector
 
@@ -164,6 +166,7 @@ class Armer:
                 wrapper = getattr(importlib.import_module(module_name), model_name)
                 del spec['type']
 
+            # Each robot is wrapped by the ROSRobot class and added to the robots list
             robots.append(wrapper(robot_cls(), **spec))
 
         backend = None
